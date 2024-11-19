@@ -36,7 +36,8 @@
 ## VLSM
 Ini adalah Penghitungan Subnet menggunakan metode classless VLSM
 ### VLSM Tree
-[masukan gambar disini]
+![image](https://github.com/user-attachments/assets/ebe0019a-7b7c-42bc-b8f2-8839caa1425c)
+
 ### PEMBAGIAN IP
 
 # Tabel Alokasi IP Subnet Hololive
