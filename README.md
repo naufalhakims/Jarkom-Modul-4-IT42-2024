@@ -816,11 +816,11 @@ Routing default digunakan untuk mengarahkan trafik ke router terdekat.
 ### CIDR
 Dibawah ini pembagian IP menggunakan CIDR
 ### Pembagian Subnet
-[kasih gambarnyaa disini]
+![subnetting_gns](https://github.com/user-attachments/assets/5cd7b016-987c-4434-ae13-376b40ccc928)
 ### CIDR TREE
-[kasi gambar yang sama]
+![image](https://github.com/user-attachments/assets/baaf99a4-461e-4a66-a4e7-a6f9a39c3c6f)
 ### CIDR pembagian IP
-[pembagian IP disini]
+![image](https://github.com/user-attachments/assets/84b1d3a4-7026-4620-9da4-88399c1439a1)
 ### Config
 ## Konfigurasi
 ### Hololive (Gateway)
