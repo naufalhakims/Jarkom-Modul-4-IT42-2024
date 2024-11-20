@@ -654,5 +654,163 @@ ip route 10.84.19.56 255.255.255.248 10.84.19.50
 do write
 
 
+# Kesimpulan
+
+### **1. Subnet A1: Koneksi Hololive dan Holo-ID**
+- **Hololive (Router)**
+  ```bash
+  enable
+  configure terminal
+  interface fa0/1
+  ip address 10.84.19.73 255.255.255.252
+  no shutdown
+  ```
+
+- **Holo-ID (Router)**
+  ```bash
+  enable
+  configure terminal
+  interface fa0/0
+  ip address 10.84.19.74 255.255.255.252
+  no shutdown
+  ```
+
+**Penjelasan:**  
+Subnet ini menggunakan alamat 10.84.19.72/30 (255.255.255.252) untuk menghubungkan Hololive dan Holo-ID. Alamat broadcast adalah 10.84.19.75.
+
+---
+
+### **2. Subnet A2: Koneksi Holo-ID dan AREA15**
+- **Holo-ID (Router)**
+  ```bash
+  enable
+  configure terminal
+  interface fa0/1
+  ip address 10.84.19.93 255.255.255.252
+  no shutdown
+  ```
+
+- **AREA15 (Router)**
+  ```bash
+  enable
+  configure terminal
+  interface fa0/0
+  ip address 10.84.19.94 255.255.255.252
+  no shutdown
+  ```
+
+**Penjelasan:**  
+Subnet ini menggunakan alamat 10.84.19.92/30. Alamat broadcast adalah 10.84.19.95.
+
+---
+
+### **3. Subnet A3: AREA15 dan Perangkat Moona, Risu, Lofi**
+- **AREA15 (Router)**
+  ```bash
+  enable
+  configure terminal
+  interface fa0/1
+  ip address 10.84.8.1 255.255.252.0
+  no shutdown
+  ```
+
+- **Moona, Risu, Lofi (Devices)**
+  ```bash
+  Interface fa0
+  IP Address: 10.84.8.2, 10.84.8.3, 10.84.8.4
+  Subnet Mask: 255.255.252.0
+  Gateway: 10.84.8.1
+  ```
+
+**Penjelasan:**  
+Subnet ini menggunakan alamat 10.84.8.0/22. Dapat mendukung hingga 1022 host.
+
+---
+
+### **4. Routing pada Hololive, Holo-ID, dan AREA15**
+- **Routing di Hololive**
+  ```bash
+  ip route 10.84.19.92 255.255.255.252 10.84.19.74
+  ip route 10.84.8.0 255.255.252.0 10.84.19.74
+  ```
+
+- **Routing di Holo-ID**
+  ```bash
+  ip route 0.0.0.0 0.0.0.0 10.84.19.73
+  ip route 10.84.8.0 255.255.252.0 10.84.19.94
+  ```
+
+- **Routing di AREA15**
+  ```bash
+  ip route 0.0.0.0 0.0.0.0 10.84.19.93
+  ```
+
+**Penjelasan:**  
+Routing ini memastikan konektivitas antar subnet menggunakan gateway yang ditentukan.
+
+---
+
+### **5. Subnet A4: Holo-ID dan holoro**
+- **Holo-ID (Router)**
+  ```bash
+  enable
+  configure terminal
+  interface fa1/0
+  ip address 10.84.19.97 255.255.255.252
+  no shutdown
+  ```
+
+- **holoro (Router)**
+  ```bash
+  enable
+  configure terminal
+  interface fa0/0
+  ip address 10.84.19.98 255.255.255.252
+  no shutdown
+  ```
+
+**Penjelasan:**  
+Subnet ini menggunakan 10.84.19.96/30. Broadcast: 10.84.19.99.
+
+---
+
+### **6. Subnet A5: holoro dan Perangkat Ollie, Anya, Reine**
+- **holoro (Router)**
+  ```bash
+  enable
+  configure terminal
+  interface fa0/1
+  ip address 10.84.18.193 255.255.255.192
+  no shutdown
+  ```
+
+- **Ollie, Anya, Reine (Devices)**
+  ```bash
+  Interface fa0
+  IP Address: 10.84.18.194, 10.84.18.195, 10.84.18.196
+  Subnet Mask: 255.255.255.192
+  Gateway: 10.84.18.193
+  ```
+
+**Penjelasan:**  
+Subnet ini menggunakan 10.84.18.192/26. Mendukung 62 host.
+
+---
+
+### **7. Routing Tambahan untuk holoro dan holoh3ro**
+- **Routing di holoro**
+  ```bash
+  ip route 0.0.0.0 0.0.0.0 10.84.19.97
+  ```
+
+- **Routing di holoh3ro**
+  ```bash
+  ip route 0.0.0.0 0.0.0.0 10.84.19.101
+  ```
+
+**Penjelasan:**  
+Routing default digunakan untuk mengarahkan trafik ke router terdekat.
+
+---
 
 
