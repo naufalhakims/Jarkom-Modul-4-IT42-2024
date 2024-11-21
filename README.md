@@ -67,443 +67,562 @@ Ini adalah Penghitungan Subnet menggunakan metode classless VLSM
 | A21              | 10.84.19.56    | 255.255.255.248   | 10.84.19.63     | 10.84.19.57 - 10.84.19.62      |
 | A22              | 10.84.18.128   | 255.255.255.192   | 10.84.18.191    | 10.84.18.129 - 10.84.18.190    |
 
-### Konfigurasi Subnetting
 
-Subnet A1
-Hololive (Router)
+
+# Network Configuration
+
+Berikut adalah konfigurasi jaringan untuk beberapa subnet yang terhubung melalui router dan perangkat yang relevan.
+
+## Subnet A1
+### Hololive (Router)
+```bash
 enable
 configure terminal
 interface fa0/1
 ip address 10.84.19.73 255.255.255.252
 no shutdown
+```
 
-Holo-ID (Router)
+### Holo-ID (Router)
+```bash
 enable
 configure terminal
 interface fa0/0
 ip address 10.84.19.74 255.255.255.252
 no shutdown
+```
 
-Subnet A2
-Holo-ID (Router)
+## Subnet A2
+### Holo-ID (Router)
+```bash
 enable
 configure terminal
 interface fa0/1
 ip address 10.84.19.93 255.255.255.252
 no shutdown
+```
 
-AREA15 (Router)
+### AREA15 (Router)
+```bash
 enable
 configure terminal
 interface fa0/0
 ip address 10.84.19.94 255.255.255.252
 no shutdown
+```
 
-Subnet A3
-AREA15 (Router)
+## Subnet A3
+### AREA15 (Router)
+```bash
 enable
 configure terminal
 interface fa0/1
 ip address 10.84.8.1 255.255.252.0
 no shutdown
+```
 
-Moona (Device)
-Interface fa0
-IP Address: 10.84.8.2
-Subnet Mask: 255.255.252.0
-Gateway: 10.84.8.1
+### Devices
+- **Moona**
+  - Interface: `fa0`
+  - IP Address: `10.84.8.2`
+  - Subnet Mask: `255.255.252.0`
+  - Gateway: `10.84.8.1`
+- **Risu**
+  - Interface: `fa0`
+  - IP Address: `10.84.8.3`
+  - Subnet Mask: `255.255.252.0`
+  - Gateway: `10.84.8.1`
+- **Lofi**
+  - Interface: `fa0`
+  - IP Address: `10.84.8.4`
+  - Subnet Mask: `255.255.252.0`
+  - Gateway: `10.84.8.1`
 
-Risu (Device)
-Interface fa0
-IP Address: 10.84.8.3
-Subnet Mask: 255.255.252.0
-Gateway: 10.84.8.1
-
-lofi (Device)
-Interface fa0
-IP Address: 10.84.8.4
-Subnet Mask: 255.255.252.0
-Gateway: 10.84.8.1
-
-Subnet A4
-Holo-ID (Router)
+## Subnet A4
+### Holo-ID (Router)
+```bash
 enable
 configure terminal
 interface fa1/0
 ip address 10.84.19.97 255.255.255.252
 no shutdown
+```
 
-holoro (Router)
+### Holoro (Router)
+```bash
 enable
 configure terminal
 interface fa0/0
 ip address 10.84.19.98 255.255.255.252
 no shutdown
+```
 
-Subnet A5
-holoro (Router)
+## Subnet A5
+### Holoro (Router)
+```bash
 enable
 configure terminal
 interface fa0/1
 ip address 10.84.18.193 255.255.255.192
 no shutdown
+```
 
-Ollie (Device)
-Interface fa0
-IP Address: 10.84.18.194
-Subnet Mask: 255.255.255.192
-Gateway: 10.84.18.193
+### Devices
+- **Ollie**
+  - Interface: `fa0`
+  - IP Address: `10.84.18.194`
+  - Subnet Mask: `255.255.255.192`
+  - Gateway: `10.84.18.193`
+- **Anya**
+  - Interface: `fa0`
+  - IP Address: `10.84.18.195`
+  - Subnet Mask: `255.255.255.192`
+  - Gateway: `10.84.18.193`
+- **Reine**
+  - Interface: `fa0`
+  - IP Address: `10.84.18.196`
+  - Subnet Mask: `255.255.255.192`
+  - Gateway: `10.84.18.193`
 
-Anya (Device)
-Interface fa0
-IP Address: 10.84.18.195
-Subnet Mask: 255.255.255.192
-Gateway: 10.84.18.193
+## Subnet A6
 
-Reine (Device)
-Interface fa0
-IP Address: 10.84.18.196
-Subnet Mask: 255.255.255.192
-Gateway: 10.84.18.193
-
-Subnet A6
-Holo-ID (Router)
-enable
-configure terminal
-interface fa1/1
-ip address 10.84.19.101 255.255.255.252
-no shutdown
-
-holoh3ro (Router)
+### Router: HoloJP-Gen0
+```bash
 enable
 configure terminal
 interface fa0/0
-ip address 10.84.19.102 255.255.255.252
+ip address 10.84.1.1 255.255.255.224
 no shutdown
+```
 
-Subnet A7
-holoh3ro (Router)
-enable
-configure terminal
-interface fa0/1
-ip address 10.84.16.1 255.255.254.0
-no shutdown
+### Devices:
+- **Sora_Roboco**
+  - Interface: `fa0`
+  - IP Address: `10.84.1.2`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.1.1`
 
-Zeta (Device)
-Interface fa0
-IP Address: 10.84.16.2
-Subnet Mask: 255.255.254.0
-Gateway: 10.84.16.1
+- **Suisei_Azki**
+  - Interface: `fa0`
+  - IP Address: `10.84.1.3`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.1.1`
 
-Kaela (Device)
-Interface fa0
-IP Address: 10.84.16.3
-Subnet Mask: 255.255.254.0
-Gateway: 10.84.16.1
+---
 
-Kobo (Device)
-Interface fa0
-IP Address: 10.84.16.4
-Subnet Mask: 255.255.254.0
-Gateway: 10.84.16.1
+## Subnet A7
 
-Subnet A8
-Hololive (Router)
-enable
-configure terminal
-interface fa1/0
-ip address 10.84.19.105 255.255.255.252
-no shutdown
-
-HoloJP (Router)
-enable
-configure terminal
-interface fa0/1
-ip address 10.84.19.106 255.255.255.252
-no shutdown
-
-Subnet A9
-HoloJP (Router)
+### Router: HoloJP-Gen1
+```bash
 enable
 configure terminal
 interface fa0/0
-ip address 10.84.19.65 255.255.255.248
+ip address 10.84.2.1 255.255.255.224
 no shutdown
+```
 
-DEV_IS (Router)
+### Devices:
+- **Fubuki_Matsuri**
+  - Interface: `fa0`
+  - IP Address: `10.84.2.2`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.2.1`
+
+- **Mel_Aki**
+  - Interface: `fa0`
+  - IP Address: `10.84.2.3`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.2.1`
+
+---
+
+## Subnet A8
+
+### Router: HoloJP-Gen2
+```bash
 enable
 configure terminal
 interface fa0/0
-ip address 10.84.19.66 255.255.255.248
+ip address 10.84.3.1 255.255.255.224
 no shutdown
+```
 
-GEN:0 (Router)
+### Devices:
+- **Aqua_Shion**
+  - Interface: `fa0`
+  - IP Address: `10.84.3.2`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.3.1`
+
+- **Ayame_Choco**
+  - Interface: `fa0`
+  - IP Address: `10.84.3.3`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.3.1`
+
+---
+
+## Subnet A9
+
+### Router: HoloJP-Gen3
+```bash
 enable
 configure terminal
 interface fa0/0
-ip address 10.84.19.67 255.255.255.248
+ip address 10.84.4.1 255.255.255.224
 no shutdown
+```
 
-Subnet A10
-DEV_IS (Router)
-enable
-configure terminal
-interface fa0/1
-ip address 10.84.19.33 255.255.255.240
-no shutdown
+### Devices:
+- **Pekora_Marine**
+  - Interface: `fa0`
+  - IP Address: `10.84.4.2`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.4.1`
 
-Ririka_Rade (Device)
-Interface fa0
-IP Address: 10.84.19.34
-Subnet Mask: 255.255.255.240
-Gateway: 10.84.19.33
+- **Noel_Flare**
+  - Interface: `fa0`
+  - IP Address: `10.84.4.3`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.4.1`
 
-Ao (Device)
-Interface fa0
-IP Address: 10.84.19.35
-Subnet Mask: 255.255.255.240
-Gateway: 10.84.19.33
+---
 
-Hajime_Kanade (Device)
-Interface fa0
-IP Address: 10.84.19.36
-Subnet Mask: 255.255.255.240
-Gateway: 10.84.19.33
+## Subnet A10
 
-Subnet A11
-GEN:0 (Router)
-enable
-configure terminal
-interface fa0/1
-ip address 10.84.0.1 255.255.248.0
-no shutdown
-
-GEN:1 (Router)
+### Router: HoloJP-Gen4
+```bash
 enable
 configure terminal
 interface fa0/0
-ip address 10.84.0.2 255.255.248.0
+ip address 10.84.5.1 255.255.255.224
 no shutdown
+```
 
-MiComet (Device)
-Interface fa0
-IP Address: 10.84.0.3
-Subnet Mask: 255.255.248.0
-Gateway: 10.84.0.1
+### Devices:
+- **Kanata_Coco**
+  - Interface: `fa0`
+  - IP Address: `10.84.5.2`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.5.1`
 
-Sora_Robo_AZK (Device)
-Interface fa0
-IP Address: 10.84.0.4
-Subnet Mask: 255.255.248.0
-Gateway: 10.84.0.1
+- **Watame_Towa**
+  - Interface: `fa0`
+  - IP Address: `10.84.5.3`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.5.1`
 
-Subnet A12
-GEN:1 (Router)
-enable
-configure terminal
-interface fa0/1
-ip address 10.84.14.1 255.255.254.0
-no shutdown
+---
 
-FBK_Matsuri (Device)
-Interface fa0
-IP Address: 10.84.14.2
-Subnet Mask: 255.255.254.0
-Gateway: 10.84.14.1
+## Subnet A11
 
-Aki_Hachama (Device)
-Interface fa0
-IP Address: 10.84.14.3
-Subnet Mask: 255.255.254.0
-Gateway: 10.84.14.1
-
-Subnet A13
-GEN:1 (Router)
-enable
-configure terminal
-interface fa1/0
-ip address 10.84.19.77 255.255.255.252
-no shutdown
-
-GAMERS (Router)
+### Router: HoloJP-Gen5
+```bash
 enable
 configure terminal
 interface fa0/0
-ip address 10.84.19.78 255.255.255.252
+ip address 10.84.6.1 255.255.255.224
 no shutdown
+```
 
-Subnet A14
-GAMERS (Router)
-enable
-configure terminal
-interface fa0/1
-ip address 10.84.18.1 255.255.255.128
-no shutdown
+### Devices:
+- **Nene_Lamy**
+  - Interface: `fa0`
+  - IP Address: `10.84.6.2`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.6.1`
 
-Kerone (Device)
-Interface fa0
-IP Address: 10.84.18.2
-Subnet Mask: 255.255.255.128
-Gateway: 10.84.18.1
+- **Polka_Botan**
+  - Interface: `fa0`
+  - IP Address: `10.84.6.3`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.6.1`
 
-Okayu (Device)
-Interface fa0
-IP Address: 10.84.18.3
-Subnet Mask: 255.255.255.128
-Gateway: 10.84.18.1
+## Subnet A12
 
-Mio (Device)
-Interface fa0
-IP Address: 10.84.18.4
-Subnet Mask: 255.255.255.128
-Gateway: 10.84.18.1
-
-Subnet A15
-Hololive (Router)
-enable
-configure terminal
-interface fa1/1
-ip address 10.84.19.81 255.255.255.252
-no shutdown
-
-HoloEN (Router)
+### Router: HoloJP-Gen6
+```bash
 enable
 configure terminal
 interface fa0/0
-ip address 10.84.19.82 255.255.255.252
+ip address 10.84.7.1 255.255.255.224
 no shutdown
+```
 
-Subnet A16
-HoloEN (Router)
-enable
-configure terminal
-interface fa0/1
-ip address 10.84.19.85 255.255.255.252
-no shutdown
+### Devices:
+- **Aloe_Suisei**
+  - Interface: `fa0`
+  - IP Address: `10.84.7.2`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.7.1`
 
-HoloAdvent (Router)
+- **Luna_Shiba**
+  - Interface: `fa0`
+  - IP Address: `10.84.7.3`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.7.1`
+
+---
+
+## Subnet A13
+
+### Router: HoloID-Gen1
+```bash
 enable
 configure terminal
 interface fa0/0
-ip address 10.84.19.86 255.255.255.252
+ip address 10.84.8.1 255.255.255.224
 no shutdown
+```
 
-Subnet A17
-HoloAdvent (Router)
+### Devices:
+- **Moona_Iofi**
+  - Interface: `fa0`
+  - IP Address: `10.84.8.2`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.8.1`
+
+- **Risu_Kobo**
+  - Interface: `fa0`
+  - IP Address: `10.84.8.3`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.8.1`
+
+---
+
+## Subnet A14
+
+### Router: HoloID-Gen2
+```bash
+enable
+configure terminal
+interface fa0/0
+ip address 10.84.9.1 255.255.255.224
+no shutdown
+```
+
+### Devices:
+- **Ollie_Anya**
+  - Interface: `fa0`
+  - IP Address: `10.84.9.2`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.9.1`
+
+- **Reine_Kaela**
+  - Interface: `fa0`
+  - IP Address: `10.84.9.3`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.9.1`
+
+---
+
+## Subnet A15
+
+### Router: HoloEN-Gen1
+```bash
+enable
+configure terminal
+interface fa0/0
+ip address 10.84.10.1 255.255.255.224
+no shutdown
+```
+
+### Devices:
+- **Amelia_Gura**
+  - Interface: `fa0`
+  - IP Address: `10.84.10.2`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.10.1`
+
+- **Ina_Kiara**
+  - Interface: `fa0`
+  - IP Address: `10.84.10.3`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.10.1`
+
+---
+
+## Subnet A16
+
+### Router: HoloEN-Gen2
+```bash
+enable
+configure terminal
+interface fa0/0
+ip address 10.84.11.1 255.255.255.224
+no shutdown
+```
+
+### Devices:
+- **Kronii_Baelz**
+  - Interface: `fa0`
+  - IP Address: `10.84.11.2`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.11.1`
+
+- **Fauna_Sana**
+  - Interface: `fa0`
+  - IP Address: `10.84.11.3`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.11.1`
+
+---
+
+## Subnet A17
+
+### Router: HoloAdvent
+```bash
 enable
 configure terminal
 interface fa0/1
 ip address 10.84.19.1 255.255.255.224
 no shutdown
+```
 
-FuwaMoco (Device)
-Interface fa0
-IP Address: 10.84.19.2
-Subnet Mask: 255.255.224.0
-Gateway: 10.84.19.1
+### Devices:
+- **FuwaMoco**
+  - Interface: `fa0`
+  - IP Address: `10.84.19.2`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.19.1`
 
-Shiori_Nerissa (Device)
-Interface fa0
-IP Address: 10.84.19.3
-Subnet Mask: 255.255.224.0
-Gateway: 10.84.19.1
+- **Shiori_Nerissa**
+  - Interface: `fa0`
+  - IP Address: `10.84.19.3`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.19.1`
 
-Biboo (Device)
-Interface fa0
-IP Address: 10.84.19.4
-Subnet Mask: 255.255.224.0
-Gateway: 10.84.19.1
+- **Biboo**
+  - Interface: `fa0`
+  - IP Address: `10.84.19.4`
+  - Subnet Mask: `255.255.255.224`
+  - Gateway: `10.84.19.1`
 
-Subnet A18
-HoloEN (Router)
+---
+
+## Subnet A18
+
+### Router: HoloEN
+```bash
 enable
 configure terminal
 interface fa1/0
 ip address 10.84.19.89 255.255.255.252
 no shutdown
+```
 
-Holo-Myth (Router)
+### Router: Holo-Myth
+```bash
 enable
 configure terminal
 interface fa0/0
 ip address 10.84.19.90 255.255.255.252
 no shutdown
+```
 
-Subnet A19
-Holo-Myth (Router)
+---
+
+## Subnet A19
+
+### Router: Holo-Myth
+```bash
 enable
 configure terminal
 interface fa0/1
 ip address 10.84.12.1 255.255.254.0
 no shutdown
+```
 
-Gura_Ame_Ina (Device)
-Interface fa0
-IP Address: 10.84.12.2
-Subnet Mask: 255.255.254.0
-Gateway: 10.84.12.1
+### Devices:
+- **Gura_Ame_Ina**
+  - Interface: `fa0`
+  - IP Address: `10.84.12.2`
+  - Subnet Mask: `255.255.254.0`
+  - Gateway: `10.84.12.1`
 
-Kiara_Calli (Device)
-Interface fa0
-IP Address: 10.84.12.3
-Subnet Mask: 255.255.254.0
-Gateway: 10.84.12.1
+- **Kiara_Calli**
+  - Interface: `fa0`
+  - IP Address: `10.84.12.3`
+  - Subnet Mask: `255.255.254.0`
+  - Gateway: `10.84.12.1`
 
-Subnet A20
-Holo-Myth (Router)
+---
+
+## Subnet A20
+
+### Router: Holo-Myth
+```bash
 enable
 configure terminal
 interface fa1/0
 ip address 10.84.19.49 255.255.255.248
 no shutdown
+```
 
-Project-Hope (Router)
-enable
-configure terminal
-interface fa0/0
-ip address 10.84.19.50 255.255.255.248
-no shutdown
+### Routers:
+- **Project-Hope**
+  ```bash
+  enable
+  configure terminal
+  interface fa0/0
+  ip address 10.84.19.50 255.255.255.248
+  no shutdown
+  ```
 
-Holo-Council (Router)
-enable
-configure terminal
-interface fa0/0
-ip address 10.84.19.51 255.255.255.248
-no shutdown
+- **Holo-Council**
+  ```bash
+  enable
+  configure terminal
+  interface fa0/0
+  ip address 10.84.19.51 255.255.255.248
+  no shutdown
+  ```
 
-Subnet A21
-Project-Hope (Router)
+---
+
+## Subnet A21
+
+### Router: Project-Hope
+```bash
 enable
 configure terminal
 interface fa0/1
 ip address 10.84.19.57 255.255.255.248
 no shutdown
+```
 
-Irys (Device)
-Interface fa0
-IP Address: 10.84.19.58
-Subnet Mask: 255.255.255.248
-Gateway: 10.84.19.57
+### Devices:
+- **Irys**
+  - Interface: `fa0`
+  - IP Address: `10.84.19.58`
+  - Subnet Mask: `255.255.255.248`
+  - Gateway: `10.84.19.57`
 
-Subnet A22
-Holo-Council (Router)
+---
+
+## Subnet A22
+
+### Router: Holo-Council
+```bash
 enable
 configure terminal
 interface fa0/1
 ip address 10.84.18.129 255.255.255.192
 no shutdown
+```
 
-Kronii_Mumei (Device)
-Interface fa0
-IP Address: 10.84.18.130
-Subnet Mask: 255.255.255.192
-Gateway: 10.84.18.129
+### Devices:
+- **Kronii_Mumei**
+  - Interface: `fa0`
+  - IP Address: `10.84.18.130`
+  - Subnet Mask: `255.255.255.192`
+  - Gateway: `10.84.18.129`
 
-Bae_Fauna (Device)
-Interface fa0
-IP Address: 10.84.18.131
-Subnet Mask: 255.255.255.192
-Gateway: 10.84.18.129
+- **Bae_Fauna**
+  - Interface: `fa0`
+  - IP Address: `10.84.18.131`
+  - Subnet Mask: `255.255.255.192`
+  - Gateway: `10.84.18.129`
 
 #### Konfigurasi Routing
 Sisi Kanan (Holo-ID)
